@@ -48,3 +48,6 @@ Below are some of the results on the model trained on MPII Cooking Activities da
 <img src='images/gen9.gif'>
 </td></tr></table>
 
+## Acknowledgements
+* [Generating Videos With Scene Dynamics](http://carlvondrick.com/tinyvideo/paper.pdf) - Carl Vondrick et al.
+
