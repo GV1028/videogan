@@ -24,5 +24,17 @@ Run main.py with the required values for each flag variable.
 
 ## Results
 Below are some of the results on the model trained on MPII Cooking Activities dataset.<br />
-![Sample Train Video](images/true_video.gif)<br/>
-![Sample Generated Video](images/generated_video.gif)
+<table><tr><td>
+<strong>Generated videos</strong><br>
+<img src='images/gen1.gif'>
+<img src='images/gen2.gif'>
+<img src='images/gen3.gif'><br>
+<img src='images/gen4.gif'>
+<img src='images/gen5.gif'>
+<img src='images/gen6.gif'><br>
+<img src='images/gen7.gif'>
+<img src='images/gen8.gif'>
+<img src='images/gen9.gif'>
+</td></tr></table>
+
+
