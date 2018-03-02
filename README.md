@@ -23,6 +23,6 @@ Place the videos inside a folder called "trainvideos".<br />
 Run main.py with the required values for each flag variable.
 
 ## Results
-Below are some of the results on the model trained on MPII Cooking Activities dataset.
-![Sample Train Video](images/true_video.gif)
+Below are some of the results on the model trained on MPII Cooking Activities dataset.<br />
+![Sample Train Video](images/true_video.gif)<br/>
 ![Sample Generated Video](images/true_video.gif)
