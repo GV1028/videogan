@@ -3,6 +3,10 @@ import cv2
 import skvideo.io
 import skimage.transform
 import numpy as np
+"""
+Author: Vignesh Gokul
+Utilities inspired from https://github.com/carpedm20/DCGAN-tensorflow
+"""
 
 def save_gen(generated_images, n_ex = 36, epoch = 0, iter = 0):
     for i in range(generated_images.shape[0]):

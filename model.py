@@ -1,3 +1,8 @@
+"""
+Author: Vignesh Gokul
+Code structure inspired from https://github.com/carpedm20/DCGAN-tensorflow
+"""
+
 import tensorflow as tf
 import numpy as np
 import glob
@@ -53,7 +58,7 @@ class VideoGAN():
         else:
             tf.global_variables_initializer().run()
         data_files = glob.glob("./trainvideos/*")
-        print_count = 10#len(data_files)/self.batch_size
+        print_count = len(data_files)/self.batch_size
         for epoch in range(self.epochs):
             for counter in range(len(data_files)/self.batch_size):
                 noise_sample = np.random.normal(-1, 1, size = [visualize_count, self.zdim]).astype(np.float32)

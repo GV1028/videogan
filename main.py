@@ -1,3 +1,8 @@
+"""
+Author: Vignesh Gokul
+Code structure inspired from https://github.com/carpedm20/DCGAN-tensorflow
+
+"""
 import os
 import scipy.misc
 import numpy as np
