@@ -10,7 +10,7 @@ from utils import *
 import sys
 
 class VideoGAN():
-    def __init__(self,sess,video_dim,zdim,batch_size,epochs,checkpoint_file):
+    def __init__(self,sess,video_dim,zdim,batch_size,epochs,checkpoint_file,lambd):
         self.bv1 = batch_norm(name = "genb1")
         self.bv2 = batch_norm(name = "genb2")
         self.bv3 = batch_norm(name = "genb3")
@@ -27,6 +27,7 @@ class VideoGAN():
         self.batch_size = batch_size
         self.epochs = epochs
         self.checkpoint_file = checkpoint_file
+        self.lambd = lambd
         self.sess = sess
 
     def build_model(self):
@@ -39,7 +40,7 @@ class VideoGAN():
         prob_fake, logits_fake = self.discriminator(self.fake_video,reuse = True)
         d_real_cost = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits = logits_real, labels = tf.ones_like(prob_real)))
         d_fake_cost = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits = logits_fake, labels = tf.zeros_like(prob_fake)))
-        self.g_cost = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits = logits_fake, labels = tf.ones_like(prob_fake))) + 0.0*tf.norm(self.mask,1)
+        self.g_cost = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits = logits_fake, labels = tf.ones_like(prob_fake))) + self.lambd*tf.norm(self.mask,1)
         self.d_cost = d_real_cost + d_fake_cost
 
     def train(self):

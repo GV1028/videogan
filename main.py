@@ -17,6 +17,7 @@ flags.DEFINE_integer("video_dim", [32,64,64,3], "The dimension of each video, mu
 flags.DEFINE_integer("zdim", 100, "The dimension of latent vector")
 flags.DEFINE_integer("batch_size", 1, "The size of batch images [64]")
 flags.DEFINE_integer("checkpoint_file", None, "The checkpoint file name")
+flags.DEFINE_integer("lambd", 0.0, "The value of sparsity regularizer")
 FLAGS = flags.FLAGS
 
 def main(_):
@@ -29,7 +30,7 @@ def main(_):
     run_config.gpu_options.allow_growth=True
 
     with tf.Session(config=run_config) as sess:
-        videogan = VideoGAN(sess,video_dim = FLAGS.video_dim,zdim = FLAGS.zdim,batch_size = FLAGS.batch_size,epochs=FLAGS.epoch,checkpoint_file = FLAGS.checkpoint_file)
+        videogan = VideoGAN(sess,video_dim = FLAGS.video_dim,zdim = FLAGS.zdim,batch_size = FLAGS.batch_size,epochs=FLAGS.epoch,checkpoint_file = FLAGS.checkpoint_file,lambd = FLAGS.lambd)
         videogan.build_model()
         videogan.train()
 
